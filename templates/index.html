@@ -19,6 +19,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+        {% if all_post: %}
         {% for post in all_posts %}
         <div class="post-preview">
           <a href="{{ url_for('show_post', post_id=post.id) }}">
@@ -39,7 +40,7 @@
         </div>
         <hr>
         {% endfor %}
-
+        {% endif %}
 
         <!-- New Post -->
         <div class="clearfix">
