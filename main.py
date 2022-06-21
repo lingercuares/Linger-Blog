@@ -14,9 +14,9 @@ from functools import wraps
 import os
 import smtplib
 
-# Mail data
-MAIL = os.environ["EMAIL"]
-PASSWORD = os.environ["PASSWORD"]
+# # Mail data
+# MAIL = os.environ["EMAIL"]
+# PASSWORD = os.environ["PASSWORD"]
 
 
 app = Flask(__name__)
@@ -192,13 +192,13 @@ def contact():
         email = request.form.get("email")
         phone = request.form.get("phone")
         message = request.form.get("message")
-        with smtplib.SMTP("smtp.gmail.com") as connection:
-            connection.starttls()
-            connection.login(user=MAIL, password=PASSWORD)
-            connection.sendmail(from_addr=MAIL,
-                                to_addrs="lingercuares@gmail.com",
-                                msg=f"subject: New Message from Linger's Blog\n\n"
-                                    f" {first_name}\n {email}\n {phone}\n {message}")
+        # with smtplib.SMTP("smtp.gmail.com") as connection:
+        #     connection.starttls()
+        #     connection.login(user=MAIL, password=PASSWORD)
+        #     connection.sendmail(from_addr=MAIL,
+        #                         to_addrs="lingercuares@gmail.com",
+        #                         msg=f"subject: New Message from Linger's Blog\n\n"
+        #                             f" {first_name}\n {email}\n {phone}\n {message}")
         return render_template("contact.html", msg_sent=True, current_user=current_user)
     else:
         return render_template("contact.html", msg_sent=False)
